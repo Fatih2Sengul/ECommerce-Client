@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hellow</title>
+</head>
+<body>
+    <p *ngFor="let tempProduct of products">
+        {{tempProduct.name}}: {{tempProduct.unitPrice | currency: 'USD'}}
+    </p>
+</body>
+</html>

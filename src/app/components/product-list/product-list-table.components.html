@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products List</title>
+</head>
+<body>
+
+      <table class="table table-striped">
+        <thead class="table-dark">
+
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Units in Stock</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let tempProduct of products">
+                <td class="align-middle">
+                    <img src="{{tempProduct.imageUrl}}" height="50">
+                </td>
+                <td class="align-middle">{{tempProduct.name}}</td>
+                <td class="align-middle">{{tempProduct.unitPrice | currency: 'USD'}}</td>
+                <td class="align-middle">{{tempProduct.unitsInStock}}</td>
+
+            </tr>
+        </tbody>
+      </table>
+
+
+    <br><br><br>
+
+
+
+    <p *ngFor="let tempProduct of products">
+        {{tempProduct.name}}: {{tempProduct.unitPrice | currency: 'USD'}}
+    </p>
+</body>
+</html>
