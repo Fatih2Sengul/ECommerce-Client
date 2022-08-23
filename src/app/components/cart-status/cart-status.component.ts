@@ -7,29 +7,28 @@ import {CartService} from "../../services/cart.service";
     styleUrls: ['cart-status.component.css']
 })
 
-export class CartStatusComponent implements OnInit{
-
+export class CartStatusComponent implements OnInit {
 
     totalPrice: number = 0.00;
     totalQuantity: number = 0;
 
+    constructor(private cartService: CartService) { }
 
-    constructor(private cartService: CartService) {
-
-    }
-
-    ngOnInit(): void{
+    ngOnInit(): void {
         this.updateCartStatus();
     }
 
-    updateCartStatus(){
+    updateCartStatus() {
 
-        this.cartService.totalPrice.subscribe(data => {
-            this.totalPrice = data
-        });
+        // subscribe to the cart totalPrice
+        this.cartService.totalPrice.subscribe(
+            data => this.totalPrice = data
+        );
 
-        this.cartService.totalQuantity.subscribe(data => {
-            this.totalQuantity = data;
-        });
+        // subscribe to the cart totalQuantity
+        this.cartService.totalQuantity.subscribe(
+            data => this.totalQuantity = data
+        );
     }
+
 }
